@@ -4,8 +4,13 @@ import { Route, Switch } from 'react-router-dom';
 import Cards from './Cards';
 import Navbar from './Navbar';
 import Roles from './pages/Roles';
+import { useEffect } from 'react';
 
 function App() {
+
+  useEffect(() => {
+    document.title = 'Menú de Roles | La Casa del Carpintero';
+  }, []);
 
   /* Obtenemos los Meses del Año */
   const meses = [
@@ -30,13 +35,13 @@ function App() {
       }}>
       <div className="overlay">
         <Navbar />
-          <Switch>
-            <Route path="/" exact component={Cards} />
-            <Route path="/roles/:id" component={Roles} />
-            <Route path="*">
-              <Cards />
-            </Route>
-          </Switch>
+        <Switch>
+          <Route path="/" exact component={Cards} />
+          <Route path="/roles/:id" component={Roles} />
+          <Route path="*">
+            <Cards />
+          </Route>
+        </Switch>
       </div>
     </div>
 

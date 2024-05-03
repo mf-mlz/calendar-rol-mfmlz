@@ -32,11 +32,13 @@ function Roles() {
   };
 
   const role = idToRoleMap[id] || null;
+  const title = `Rol ${role} ${months[month]} ${year} | La Casa del Carpintero`;
 
   useEffect(() => {
+    document.title = title;
     const apiUrl = process.env.REACT_APP_API_URL + '/' + id;
     fetchData(apiUrl);
-  }, [id]);
+  }, [id, title]);
 
   /* Function to get data rol */
   const fetchData = async (url) => {
