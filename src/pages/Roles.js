@@ -96,10 +96,12 @@ function Roles() {
   /* Create Events to Month */
   const events = [];
   data.forEach(d => {
+    let name = d.name_user;
+    let title = name.split(' ');
     let obj = {
       start: new Date(d.year, d.month - 1, d.day),
       end: new Date(d.year, d.month - 1, d.day),
-      title: d.name_user
+      title: title[0]
     }
     events.push(obj);
   });
@@ -109,11 +111,8 @@ function Roles() {
     setLoading(true);
     const node = document.getElementById('divRole');
     node.style.backgroundColor = '#80683f';
-    node.style.padding = '10px';
-    const width = node.scrollWidth;
-    const height = node.scrollHeight;
-    node.style.width = `${width}px`;
-    node.style.height = `${height + 150}px`;
+    node.style.width = '800px';
+    node.style.height = '800px';
     htmlToImage.toPng(node)
       .then(function (dataUrl) {
         const link = document.createElement('a');
@@ -121,7 +120,6 @@ function Roles() {
         link.href = dataUrl;
         link.click();
         node.style.backgroundColor = '';
-        node.style.padding = '';
         node.style.width = '';
         node.style.height = '';
         setLoading(false);

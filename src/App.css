@@ -65,13 +65,23 @@ html {
   box-shadow: none;
   margin: 0;
   padding: 2px 5px;
-  background-color: #0000;
+  background-color: #3174ad;
   border-radius: 5px;
   color: #fff;
-  cursor: pointer;
+  /* cursor: pointer; */
   width: 100%;
-  text-align: center !important;
-  font-size: small !important;
+  text-align: left;
+  font-size: x-small !important;
+}
+
+.rbc-ellipsis,
+.rbc-show-more,
+.rbc-row-segment .rbc-event-content,
+.rbc-event-label {
+  display: block;
+  overflow: visible !important;
+  text-overflow: ellipsis;
+  white-space: normal !important;
 }
 
 .loading-container {
@@ -94,9 +104,20 @@ html {
   align-items: center;
 }
 
-.rbc-ellipsis, .rbc-show-more, .rbc-row-segment .rbc-event-content, .rbc-event-label {
+.rbc-ellipsis,
+.rbc-show-more,
+.rbc-row-segment .rbc-event-content,
+.rbc-event-label {
   display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal !important;
+}
+
+.rbc-date-cell {
+  flex: 1 1;
+  min-width: 0;
+  padding-right: 5px;
+  text-align: right;
+  color: black;
 }
