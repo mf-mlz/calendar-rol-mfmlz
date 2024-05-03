@@ -1,24 +1,45 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import { Route, Switch } from 'react-router-dom';
+import Cards from './Cards';
+import Navbar from './Navbar';
+import Roles from './pages/Roles';
 
 function App() {
+
+  /* Obtenemos los Meses del Año */
+  const meses = [
+    "enero", "febrero", "marzo", "abril", "mayo", "junio",
+    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+  ];
+
+  const date = new Date();
+  const month = date.getMonth();
+
+  const backgroundImage = require(`./img/${meses[month]}.jpg`);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="full-width d-flex justify-content-center align-items-center imgBack"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'initial',
+        minHeight: '100vh', // Asegura que el fondo cubra toda la página
+      }}>
+      <div className="overlay">
+        <Navbar />
+          <Switch>
+            <Route path="/" exact component={Cards} />
+            <Route path="/roles/:id" component={Roles} />
+            <Route path="*">
+              <Cards />
+            </Route>
+          </Switch>
+      </div>
     </div>
+
   );
 }
 
