@@ -15,6 +15,7 @@ function Roles() {
   /* Constants */
   const { id } = useParams();
   const [data, setData] = useState([]);
+  const [event, setEvent] = useState([]);
   const [loading, setLoading] = useState(true);
   const [redirect, setRedirect] = useState(false);
   const months = [
@@ -37,55 +38,59 @@ function Roles() {
   useEffect(() => {
     document.title = title;
     const apiUrl = process.env.REACT_APP_API_URL + '/' + id;
+    const apiUrlEvents = process.env.REACT_APP_API_URL_EVENTS;
+
+    /* Function to get data rol */
+    const fetchData = async (url) => {
+      try {
+        const jsonData = await apiService.fetchData(url);
+        if (Array.isArray(jsonData)) {
+          setTimeout(() => {
+            setLoading(false);
+            setData(jsonData);
+          }, 3000);
+        } else {
+          redirectSwal();
+        }
+      } catch (error) {
+        redirectSwal();
+      }
+    };
+
+    /* Function to get data events */
+    const fetchDataEvents = async (url) => {
+      try {
+        const jsonData = await apiService.fetchData(url);
+        setEvent(jsonData);
+      } catch (error) {
+        redirectSwal();
+      }
+    };
+
     fetchData(apiUrl);
+    fetchDataEvents(apiUrlEvents);
   }, [id, title]);
 
-  /* Function to get data rol */
-  const fetchData = async (url) => {
-    try {
-      const jsonData = await apiService.fetchData(url); // Suponiendo que tienes un método llamado getData en tu servicio de API
-      if (Array.isArray(jsonData)) {
-        setTimeout(() => {
-          setLoading(false);
-          setData(jsonData);
-        }, 3000);
-      } else {
-        setTimeout(() => {
-          setLoading(false);
-          Swal.fire({
-            title: "Datos no existentes",
-            text: "Ocurrió un error al Obtener los datos, o ingreso a una liga inexistente",
-            icon: "warning",
-            showCancelButton: false,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Ok"
-          }).then((result) => {
-            if (result.isConfirmed) {
-              setRedirect(true);
-            }
-          });
-        }, 3000);
-      }
-    } catch (error) {
-      setTimeout(() => {
-        setLoading(false);
-        Swal.fire({
-          title: "Datos no existentes",
-          text: "Ocurrió un error al Obtener los datos, o ingreso a una liga inexistente",
-          icon: "warning",
-          showCancelButton: false,
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "Ok"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            setRedirect(true);
-          }
-        });
-      }, 3000);
-    }
-  };
+
+  /* Function to swal error => redirect */
+  function redirectSwal() {
+    setTimeout(() => {
+      setLoading(false);
+      Swal.fire({
+        title: "Datos no existentes",
+        text: "Ocurrió un error al Obtener los datos, o ingreso a una liga inexistente",
+        icon: "warning",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Ok"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setRedirect(true);
+        }
+      });
+    }, 3000);
+  }
 
 
   /* If not data => redirect to / */
@@ -104,6 +109,27 @@ function Roles() {
       title: title[0]
     }
     events.push(obj);
+  });
+
+
+  event.forEach(e => {
+    const date = new Date(e.year, e.month - 1, e.day);
+    const noApply = e.not_apply;
+    const notApplyArray = noApply.split(',');
+    const index = events.findIndex(rol => {
+      return new Date(rol.start).toISOString() === new Date(date).toISOString();
+    });
+
+    /* Exists Index to event */
+    if (index !== -1) {
+      const searchNotApply = notApplyArray.some(noapply => noapply === id);
+      /* Si coincide que es el Rol que no Aplica */
+      if (searchNotApply) {
+        events[index].title = `No aplica, ${e.name}`;
+      }
+
+    }
+
   });
 
   /* Function to export div => image */

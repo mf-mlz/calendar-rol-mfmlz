@@ -121,3 +121,15 @@ html {
   text-align: right;
   color: black;
 }
+
+.rbc-month-view {
+  position: relative;
+  border: 0px solid #ddd !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0;
+  width: 100%;
+  user-select: none;
+  -webkit-user-select: none;
+  height: 100%;
+}
