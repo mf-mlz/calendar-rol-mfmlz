@@ -29,7 +29,9 @@ function Roles() {
     'rolesb': 'Bienvenida',
     'rolesl': 'Limpieza',
     'rolesn': 'Niños',
-    'roleso': 'Oración'
+    'roleso': 'Oración',
+    'rolessc': 'Santa Cena',
+    'rolesdo': 'Oración Presencial'
   };
 
   const role = idToRoleMap[id] || null;
