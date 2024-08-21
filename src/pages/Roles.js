@@ -9,6 +9,16 @@ import { Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 
+/* Function Get Last Sunday of Month */
+function getLastSundayOfMonth(year, month) {
+
+  const lastDayOfMonth = new Date(year, month + 1, 0);
+  const lastDayOfWeek = lastDayOfMonth.getDay();
+  const lastSunday = new Date(lastDayOfMonth);
+  lastSunday.setDate(lastDayOfMonth.getDate() - lastDayOfWeek);
+
+  return lastSunday.getDate();
+}
 
 function Roles() {
 
@@ -23,7 +33,15 @@ function Roles() {
     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
   ];
   const date = new Date();
-  const month = date.getMonth();
+  let month = date.getMonth();
+
+  const lastSundayOfMonth = getLastSundayOfMonth(date.getFullYear(), date.getMonth());
+  /* Num. Days for last sunday of the month */
+  const daysUntilLastSunday = lastSundayOfMonth - date.getDate();
+  
+  /* Si faltan menos o igual a 7 días => Agarramos el mes siguiente */
+  month = daysUntilLastSunday <= 7 ? month + 1 : month;
+  
   const year = date.getFullYear();
   const idToRoleMap = {
     'rolesb': 'Bienvenida',
@@ -179,7 +197,7 @@ function Roles() {
       <div className='text-white text-center my-3' id="divRole" style={{ padding: 10 }}>
         <h1> Rol {role} {months[month]} {year} </h1>
         <div className="container full-height full-width d-flex justify-content-center align-items-center my-2">
-          <Mycalendar events={events} />
+          <Mycalendar events={events} month={month} year={year} />
         </div>
       </div>
     </div>
