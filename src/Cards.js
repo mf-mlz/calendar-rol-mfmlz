@@ -55,7 +55,7 @@ function Cards() {
         </div>
         <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center my-2">
           <div className="card border border-dark" style={{ width: '18rem' }}>
-            <img src="https://i.ibb.co/bP1c27V/OIP.jpg" className="card-img-top" alt="Niños" style={{ maxHeight: '160px', minHeight: '160px' }} />
+            <img src="https://i.ytimg.com/vi/gbSPrzi3wCk/maxresdefault.jpg" className="card-img-top" alt="Niños" style={{ maxHeight: '160px', minHeight: '160px' }} />
             <div className="card-body">
               <h5 className="card-title">Rol de Santa Cena</h5>
               <Link to="/roles/rolessc" className="btn btn-dark">Ver Calendario</Link>
