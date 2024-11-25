@@ -16,7 +16,7 @@ function Cards() {
           </div>
 
         </div>
-        <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center my-2">
+        {/* <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center my-2">
           <div className="card border border-dark" style={{ width: '18rem' }}>
             <img src="https://st3.depositphotos.com/1796046/12706/v/950/depositphotos_127063054-stock-illustration-little-boy-praying.jpg" className="card-img-top" alt="Bienvenida Niños" style={{ maxHeight: '160px', minHeight: '160px' }} />
             <div className="card-body">
@@ -25,7 +25,7 @@ function Cards() {
             </div>
           </div>
 
-        </div>
+        </div> */}
         <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center my-2">
           <div className="card border border-dark" style={{ width: '18rem' }}>
             <img src="https://th.bing.com/th/id/R.e7354efbc9b19c6f885a892b9c52da34?rik=MwPWMyU0i0Sr2g&pid=ImgRaw&r=0" className="card-img-top" alt="Oración" style={{ maxHeight: '160px', minHeight: '160px' }} />
