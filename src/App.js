@@ -31,7 +31,7 @@ function App() {
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'initial',
-        minHeight: '100vh', // Asegura que el fondo cubra toda la página
+        minHeight: '100vh', 
       }}>
       <div className="overlay">
         <Navbar />
