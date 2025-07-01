@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+# calendar-rol-mfmlz
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![React](https://img.shields.io/badge/React-v18.2-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 📅 Descripción
 
-### `npm start`
+**calendar-rol-mfmlz** es la aplicación frontend desarrollada en **React** para interactuar con la API **api-role-calendar**. Permite a los usuarios visualizar y gestionar los roles mensuales de la iglesia **LCDC** (La Casa de Dios en Cristo) de forma intuitiva y amigable.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🔗 Repositorio
 
-### `npm test`
+El proyecto está disponible en GitHub:  
+[https://github.com/mf-mlz/calendar-rol-mfmlz](https://github.com/mf-mlz/calendar-rol-mfmlz)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## ⚙️ Tecnologías
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React 
+- JavaScript 
+- Tailwindcss
+- Fetch API
+- React Router
+- Calendar React
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🚀 Instalación
 
-### `npm run eject`
+1. Clona el repositorio:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```bash
+   git clone https://github.com/mf-mlz/calendar-rol-mfmlz.git
+   cd calendar-rol-mfmlz
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Instala las dependencias:
+    ```bash
+    npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+3. Configura el archivo de variables de entorno
+    ```bash
+    REACT_APP_API_URL=URL_API
+    REACT_APP_API_URL_ROLESL=URL_API/rolesl
+    REACT_APP_API_URL_ROLESB=URL_API/rolesb
+    REACT_APP_API_URL_ROLESO=URL_API/roleso
+    REACT_APP_API_URL_ROLESN=URL_API/rolesn
+    REACT_APP_API_URL_EVENTS=URL_API/events
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+4. Levanta la app
+    ```bash
+    npm start
 
-## Learn More
+## 📚 Funcionalidades principales
+- Visualizar roles por categorías: Bienvenida, Bienvenida Niños, Santa Cena, Limpieza.
+- Consultar eventos del mes.
+- Navegación sencilla para filtrar roles por mes y año.
+- Interfaz amigable y responsiva.
+- Exportar Calendario formato imagen.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📄 Licencia
+Este proyecto está bajo licencia MIT. Consulta el archivo LICENSE para más detalles.
 
-### Code Splitting
+## 👤 Autor
+María Fernanda Martínez Labra – GitHub mf-mlz – maryfermtzlb@gmail.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+¡Gracias por usar calendar-rol-mfmlz para apoyar la organización de la iglesia LA CASA DEL CARPINTERO! 🙌
