@@ -71,8 +71,8 @@ const Mycalendar = ({ events, month, year, role }) => {
 
       div.innerHTML = `
   <div style="
-  width: 500px; 
-  height: 900px; 
+  width: 800px; 
+  height: 1300px; 
   background-image: url('${img}');
   background-size: cover;
   background-position: center;
@@ -89,6 +89,7 @@ const Mycalendar = ({ events, month, year, role }) => {
     background-color: rgba(0, 0, 0, 0.73);
     text-align: center;
     padding: 20px 0;
+    color: #f8d178;
   ">
     <h2 style="font-size: 36px; margin: 0; font-weight: bold;">${
       event.title
@@ -97,8 +98,17 @@ const Mycalendar = ({ events, month, year, role }) => {
       "D [de] MMMM [de] YYYY"
     )}</p>
     <br>
-    <b style="font-size:15px;">${versiculos[randomIndex].cita}</b><br>
-    <b style="font-size:13px;"><em>${versiculos[randomIndex].texto}</em></b>
+    <b style="font-size:20px;">${versiculos[randomIndex].cita}</b><br>
+    <p style="
+  font-size: 20px; 
+  font-weight: bold; 
+  max-width: 80%; 
+  margin: 12px auto 0 auto; 
+  word-wrap: break-word;
+  text-align: center;
+">
+  <em>${versiculos[randomIndex].texto}</em>
+</p>
   </div>
 </div>
 `;
