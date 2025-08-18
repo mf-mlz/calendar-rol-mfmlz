@@ -1,21 +1,31 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import Cards from './Cards';
-import Navbar from './Navbar';
-import Roles from './pages/Roles';
-import { useEffect } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { Route, Switch } from "react-router-dom";
+import Cards from "./Cards";
+import Navbar from "./Navbar";
+import Roles from "./pages/Roles";
+import GenerateImg from "./pages/ImgGenerator";
+import { useEffect } from "react";
 
 function App() {
-
   useEffect(() => {
-    document.title = 'Menú de Roles | La Casa del Carpintero';
+    document.title = "Menú de Roles | La Casa del Carpintero";
   }, []);
 
   /* Obtenemos los Meses del Año */
   const meses = [
-    "enero", "febrero", "marzo", "abril", "mayo", "junio",
-    "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
   ];
 
   const date = new Date();
@@ -24,27 +34,28 @@ function App() {
   const backgroundImage = require(`./img/${meses[month]}.jpg`);
 
   return (
-
-    <div className="full-width d-flex justify-content-center align-items-center imgBack"
+    <div
+      className="full-width d-flex justify-content-center align-items-center imgBack"
       style={{
         backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'initial',
-        minHeight: '100vh', 
-      }}>
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "initial",
+        minHeight: "100vh",
+      }}
+    >
       <div className="overlay">
         <Navbar />
         <Switch>
           <Route path="/" exact component={Cards} />
           <Route path="/roles/:id" component={Roles} />
+          <Route path="/generateImg/:name/:day/:month/:year" component={GenerateImg} />
           <Route path="*">
             <Cards />
           </Route>
         </Switch>
       </div>
     </div>
-
   );
 }
 
