@@ -12,7 +12,7 @@ const Mycalendar = ({ events, month, year, role }) => {
 
   const handleSelectEvent = (event) => {
     if (role === "Cumpleaños") {
-      const img = require("../img/birthdays.png");
+      const img = require("../img/birthdays3.png");
 
       const versiculos = [
         {

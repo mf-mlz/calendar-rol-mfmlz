@@ -83,7 +83,7 @@ const GenerateImg = () => {
       style={{
         width: "800px",
         height: "1300px",
-        backgroundImage: `url(${require("../img/birthdays.png")})`,
+        backgroundImage: `url(${require("../img/birthdays3.png")})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         position: "relative",
