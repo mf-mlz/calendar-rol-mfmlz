@@ -97,10 +97,10 @@ const GenerateImg = () => {
           bottom: "150px",
           left: 0,
           width: "100%",
-          backgroundColor: "rgba(0,0,0,0.73)",
+          backgroundColor: "rgb(236, 213, 182)",
           textAlign: "center",
           padding: "20px 0",
-          color: "#f8d178",
+          color: "#312300",
         }}
       >
         <h2 style={{ fontSize: "36px", margin: 0, fontWeight: "bold" }}>
