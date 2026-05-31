@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router-dom";
 import Cards from "./Cards";
 import Navbar from "./Navbar";
 import Roles from "./pages/Roles";
+import Reportes from "./pages/Reportes";
 import GenerateImg from "./pages/ImgGenerator";
 import { useEffect } from "react";
 
@@ -49,6 +50,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Cards} />
           <Route path="/roles/:id" component={Roles} />
+          <Route path="/reportes" component={Reportes} />
           <Route path="/generateImg/:name/:day/:month/:year" component={GenerateImg} />
           <Route path="*">
             <Cards />
