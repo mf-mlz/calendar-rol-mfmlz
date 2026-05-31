@@ -151,9 +151,17 @@ function Reportes() {
     { fecha: "30/05/2026", concepto: "BASURA", cantidad: 50.0 },
   ];
 
-  const totalIngresos = ingresos.reduce((acc, i) => acc + i.cantidad, 0);
+  /* Calculos */
+  const totalIngresos = ingresos
+    .filter(
+      (i) => i.concepto.includes("DIEZMO") || i.concepto.includes("SIEMBRA"),
+    )
+    .reduce((acc, i) => acc + i.cantidad, 0);
+
   const totalGastos = gastos.reduce((acc, g) => acc + g.cantidad, 0);
-  const saldo = totalIngresos - totalGastos;
+
+  const saldo =
+    ingresos.find((i) => i.concepto === "CAJA (CIERRE)")?.cantidad || 0;
 
   const fmt = (n) =>
     n.toLocaleString("es-MX", { style: "currency", currency: "MXN" });
@@ -215,7 +223,7 @@ function Reportes() {
                 className="fw-bold"
                 style={{ color: saldo >= 0 ? "#006100" : "#c00000" }}
               >
-                SALDO RESTANTE
+                SALDO EN CAJA
               </h6>
               <h4
                 className="fw-bold"
@@ -260,7 +268,18 @@ function Reportes() {
                 </thead>
                 <tbody>
                   {ingresos.map((item, i) => (
-                    <tr key={i}>
+                    <tr
+                      key={i}
+                      style={
+                        item.concepto.includes("SIEMBRA")
+                          ? {
+                              backgroundColor: "#0070C0",
+                              color: "#FFFFFF",
+                              fontWeight: "bold",
+                            }
+                          : {}
+                      }
+                    >
                       <td style={{ whiteSpace: "nowrap" }}>{item.fecha}</td>
                       <td>{item.concepto}</td>
                       <td className="text-end">{fmt(item.cantidad)}</td>
@@ -316,7 +335,18 @@ function Reportes() {
                 </thead>
                 <tbody>
                   {gastos.map((item, i) => (
-                    <tr key={i}>
+                    <tr
+                      key={i}
+                      style={
+                        item.concepto.includes("PASTOR RAÚL")
+                          ? {
+                              backgroundColor: "#FFFF00",
+                              color: "#000000",
+                              fontWeight: "bold",
+                            }
+                          : {}
+                      }
+                    >
                       <td style={{ whiteSpace: "nowrap" }}>{item.fecha}</td>
                       <td>{item.concepto}</td>
                       <td className="text-end">{fmt(item.cantidad)}</td>
@@ -349,7 +379,7 @@ function Reportes() {
           <div
             className="alert fw-bold text-center"
             style={{ backgroundColor: "#ffff00", border: "1px solid #bfbfbf" }}
-        >
+          >
             ⚠️ DEUDA PENDIENTE: $3,250 TABLAROCA
           </div>
         </div>
