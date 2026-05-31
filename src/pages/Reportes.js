@@ -142,10 +142,10 @@ function Reportes() {
       concepto: "JUGUETES DÍA DEL NIÑO - MERCADO LIBRE (2/2)",
       cantidad: 500.0,
     },
-    { fecha: "24/05/2026", concepto: "APOYO PASTOR RAÚL", cantidad: 112.0 },
+    { fecha: "24/05/2026", concepto: "APOYO PASTOR RAUL", cantidad: 112.0 },
     {
       fecha: "24/05/2026",
-      concepto: "APOYO PASTOR RAÚL (RECOLECTA - NO SE TOMA DEL DIEZMO)",
+      concepto: "APOYO PASTOR RAUL (RECOLECTA - NO SE TOMA DEL DIEZMO)",
       cantidad: 3000.0,
     },
     { fecha: "30/05/2026", concepto: "BASURA", cantidad: 50.0 },
@@ -370,7 +370,7 @@ function Reportes() {
                   {gastos.map((item, i) => {
                     const isPastorRaul = item.concepto
                       .toUpperCase()
-                      .includes("PASTOR");
+                      .includes("PASTOR RAUL");
 
                     return (
                       <tr key={i}>
