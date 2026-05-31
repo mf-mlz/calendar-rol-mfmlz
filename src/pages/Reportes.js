@@ -367,24 +367,57 @@ function Reportes() {
                   </tr>
                 </thead>
                 <tbody>
-                  {gastos.map((item, i) => (
-                    <tr
-                      key={i}
-                      style={
-                        item.concepto.includes("PASTOR RAÚL")
-                          ? {
+                  {gastos.map((item, i) => {
+                    const isPastorRaul = item.concepto
+                      .toUpperCase()
+                      .includes("PASTOR");
+
+                    return (
+                      <tr key={i}>
+                        <td
+                          style={{
+                            whiteSpace: "nowrap",
+                            ...(isPastorRaul && {
                               backgroundColor: "#FFFF00",
                               color: "#000000",
                               fontWeight: "bold",
-                            }
-                          : {}
-                      }
-                    >
-                      <td style={{ whiteSpace: "nowrap" }}>{item.fecha}</td>
-                      <td>{item.concepto}</td>
-                      <td className="text-end">{fmt(item.cantidad)}</td>
-                    </tr>
-                  ))}
+                            }),
+                          }}
+                        >
+                          {item.fecha}
+                        </td>
+
+                        <td
+                          style={
+                            isPastorRaul
+                              ? {
+                                  backgroundColor: "#FFFF00",
+                                  color: "#000000",
+                                  fontWeight: "bold",
+                                }
+                              : {}
+                          }
+                        >
+                          {item.concepto}
+                        </td>
+
+                        <td
+                          className="text-end"
+                          style={
+                            isPastorRaul
+                              ? {
+                                  backgroundColor: "#FFFF00",
+                                  color: "#000000",
+                                  fontWeight: "bold",
+                                }
+                              : {}
+                          }
+                        >
+                          {fmt(item.cantidad)}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
                 <tfoot
                   style={{
