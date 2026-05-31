@@ -112,6 +112,24 @@ function Cards() {
             </div>
           </div>
         </div>
+
+        {/* Reportes Financieros */}
+        <div className="col-lg-6 col-md-12 col-sm-12 d-flex justify-content-center align-items-center my-2">
+          <div className="card border border-dark" style={{ width: "18rem" }}>
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/032/321/129/original/financial-report-illustration-with-data-charts-graphs-and-diagrams-on-finance-transaction-analysis-and-statistic-online-in-flat-background-vector.jpg"
+              className="card-img-top"
+              alt="ReporteFinanciero"
+              style={{ maxHeight: "160px", minHeight: "160px" }}
+            />
+            <div className="card-body">
+              <h5 className="card-title">Reporte Financiero</h5>
+              <Link to="/reportes" className="btn btn-dark">
+                Ver Reporte
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
