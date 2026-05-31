@@ -267,24 +267,57 @@ function Reportes() {
                   </tr>
                 </thead>
                 <tbody>
-                  {ingresos.map((item, i) => (
-                    <tr
-                      key={i}
-                      style={
-                        item.concepto.includes("SIEMBRA")
-                          ? {
+                  {ingresos.map((item, i) => {
+                    const isSiembra = item.concepto
+                      .toUpperCase()
+                      .includes("SIEMBRA");
+
+                    return (
+                      <tr key={i}>
+                        <td
+                          style={{
+                            whiteSpace: "nowrap",
+                            ...(isSiembra && {
                               backgroundColor: "#0070C0",
                               color: "#FFFFFF",
                               fontWeight: "bold",
-                            }
-                          : {}
-                      }
-                    >
-                      <td style={{ whiteSpace: "nowrap" }}>{item.fecha}</td>
-                      <td>{item.concepto}</td>
-                      <td className="text-end">{fmt(item.cantidad)}</td>
-                    </tr>
-                  ))}
+                            }),
+                          }}
+                        >
+                          {item.fecha}
+                        </td>
+
+                        <td
+                          style={
+                            isSiembra
+                              ? {
+                                  backgroundColor: "#0070C0",
+                                  color: "#FFFFFF",
+                                  fontWeight: "bold",
+                                }
+                              : {}
+                          }
+                        >
+                          {item.concepto}
+                        </td>
+
+                        <td
+                          className="text-end"
+                          style={
+                            isSiembra
+                              ? {
+                                  backgroundColor: "#0070C0",
+                                  color: "#FFFFFF",
+                                  fontWeight: "bold",
+                                }
+                              : {}
+                          }
+                        >
+                          {fmt(item.cantidad)}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
                 <tfoot
                   style={{
@@ -378,9 +411,38 @@ function Reportes() {
         <div className="col-12">
           <div
             className="alert fw-bold text-center"
-            style={{ backgroundColor: "#ffff00", border: "1px solid #bfbfbf" }}
+            style={{
+              backgroundColor: "#ffff00",
+              border: "1px solid #bfbfbf",
+            }}
           >
             ⚠️ DEUDA PENDIENTE: $3,250 TABLAROCA
+          </div>
+
+          <div
+            className="text-center mt-3"
+            style={{
+              fontSize: "0.9rem",
+              color: "#666",
+              lineHeight: "1.6",
+            }}
+          >
+            <p className="mb-1">
+              <strong>Reporte generado el 30 de mayo de 2026</strong> • Iglesia
+              Casa del Carpintero
+            </p>
+
+            <p className="mb-1">
+              Los montos registrados como <strong>"CAJA"</strong> en el libro
+              diario representan acumulados del saldo corriente y no nuevas
+              entradas de efectivo.
+            </p>
+
+            <p className="mb-0">
+              <strong>Nota:</strong> El apoyo al Pastor Raúl por{" "}
+              <strong>$3,000.00</strong> proviene de una recolecta especial y no
+              afecta los ingresos por diezmos.
+            </p>
           </div>
         </div>
       </div>
