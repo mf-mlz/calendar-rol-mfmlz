@@ -457,6 +457,8 @@ function Reportes() {
             style={{
               fontSize: "0.9rem",
               color: "#666",
+              backgroundColor: "#ffffff",
+              border: "1px solid #bfbfbf",
               lineHeight: "1.6",
             }}
           >
